@@ -8,7 +8,7 @@ const Dashboard: NextPage = () => {
         supabase.auth.signOut();
     };
     return (
-        <Layout title="Dashbord">
+        <Layout title="Dashboard">
             <LogoutIcon
                 className="mb-6 h-6 w-6 cursor-pointer text-blue-500"
                 onClick={signOut}
