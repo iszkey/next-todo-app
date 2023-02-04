@@ -17,7 +17,7 @@ const Auth: NextPage = () => {
     } = useMutateAuth();
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        // submit によるページのりろー度を防ぐ
+        // submit によるページのリロードを防ぐ
         e.preventDefault();
 
         if (isLogin) {
