@@ -11,3 +11,8 @@ export type Notice = {
     content: string
     user_id: string | undefined
 }
+
+/** Task から　createdAt と　user_idを除いた型　*/
+export type EditedTask = Omit<Task, 'created_at'|'user_id'>
+
+export type EditedNotice = Omit<Notice, 'created_at' | 'user_id'>
