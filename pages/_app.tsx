@@ -58,7 +58,7 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         // プロジェクト全体にReactQueryを適用するため<QueryClientProviderでラップする
         <QueryClientProvider client={queryClient}>
-            <Component {...pageProps} />)
+            <Component {...pageProps} />
             <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
     );
