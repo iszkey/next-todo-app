@@ -69,4 +69,33 @@ export const useMutateTask = () => {
             },
         }
     );
+
+    const deleteTaskMutation = useMutation(
+        async (id: string) => {
+            const { data, error } = await supabase
+                .from('todos')
+                .delete()
+                .eq('id', id);
+            if (error) throw new Error(error.message);
+            return data;
+        },
+        {
+            onSuccess: (_, variables) => {
+                const previousTodos = queryClient.getQueryData<Task[]>('todos');
+                if (previousTodos) {
+                    queryClient.setQueryData(
+                        'todos',
+                        previousTodos.filter((task) => task.id !== variables)
+                    );
+                }
+                reset();
+            },
+            onError: (err: any) => {
+                alert(err.message);
+                reset();
+            },
+        }
+    );
+
+    return { deleteTaskMutation, createTaskMutation, updateTaskMutation };
 };
