@@ -34,7 +34,10 @@ export const TaskForm: FC = () => {
                     update({ ...editedTask, title: e.target.value })
                 }
             />
-            <button className="test-white ml-2 rounded bg-indigo-600 px-3 py-2 text-sm font-medium hover:bg-indigo-700">
+            <button
+                type="submit"
+                className="test-white ml-2 rounded bg-indigo-600 px-3 py-2 text-sm font-medium text-white hover:bg-indigo-700"
+            >
                 {editedTask.id ? 'Update' : 'Create'}
             </button>
         </form>
