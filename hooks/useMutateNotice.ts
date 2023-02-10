@@ -19,13 +19,13 @@ export const useMutateNotice = () => {
             onSuccess: (res) => {
                 // 'notices'というkeyに紐づくキャッシュデータを取得する
                 const previousNotices = queryClient.getQueryData<Notice[]>([
-                    'todos',
+                    'notices',
                 ]);
 
                 if (previousNotices) {
                     // キャッシュデータの更新
                     queryClient.setQueryData(
-                        ['todos'],
+                        ['notices'],
                         [...previousNotices, res[0]] //スプレット演算子で展開して末尾に新しいtodoを追加する
                     );
                 }
